@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<!-- ------------------------------START-HEAD-----------------     -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yummy</title>
+    <link rel="icon" href="./imgs/logo.png">
+            <!-- ---------------Bootstrap-------------- -->
+<link rel="stylesheet" href="./Css/bootstrap.min.css">
+            <!-- -------------GOOGLEFONTS+FONTS--------------- -->
+<link rel="stylesheet" href="./Css/all.min.css">
+            <!-- ------------------CSS----------------- -->
+<link rel="stylesheet" href="./style.css">
+</head>
+
+
+
+<!-- ------------------------------END-HEAD-------------------     -->
+
+
+
+<!-- ------------------------------START-BODY-------------------     -->
+
+<body class="bg-black position-relative">
+    <!-- ------------------------------Start-Navbar---------------- -->
+    <div id="sideNav" class="min-vh-100 position-fixed">
+    <div class="container-fluid">
+        <div class="row position-relative min-vh-100">
+            <div class="col-sm-2 bg-white nav-white d-flex flex-column align-items-center justify-content-between" id="closeNav" > 
+                <div class="navWhiteLogo">
+                    <img src="./imgs/logo.png" alt="logo" class="w-100 pt-2">
+                </div>
+                <div class="navWhiteicon">
+                    <i id="signToOpenNav" class="fa-solid open-close-icon fa-2x fa-x d-none" ></i>
+                    <i id="signToCloseNav" class="fa-solid open-close-icon fa-2x fa-align-justify" ></i>
+                </div>
+                <div class="navWhitefooter pb-3">
+                    <i class="fa-solid fa-globe d-block"></i>
+                    <i class="fa-solid fa-share-nodes"></i>
+                </div>
+            </div>
+            <div class="col-sm-10 bg-black nav-black d-flex flex-column justify-content-between d-none " id="closeInfo" >
+                <div class="navBlackItems">
+                    <ul class="text-white pt-4">
+                        <li class="py-2" id="search">Search</li>
+                        <li class="py-2" id="categoriesNav">Categories</li>
+                        <li class="py-2" id="dislayArea">Area</li>
+                        <li class="py-2" id="diplayIngred">Ingredients</li>
+                        <li class="py-2" id="contactNav">Contact Us</li>
+                    </ul>
+                </div>
+                <div class="navBlackFooter position-relative down">
+                    <ul class="d-flex m-auto text-white">
+                        <Li> <i class="fa-brands fa-facebook px-1"></i></Li>
+                        <Li> <i class="fa-brands fa-twitter px-1"></i></Li>
+                        <Li> <i class="fa-solid fa-globe px-1"></i></Li>
+                    </ul>
+                    <p class="text-center text-white" > Copyright Â© 2019 All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+    <!-- ------------------------------End-Navbar---------------- -->
+<!-- -----------------------------Search--------------------- -->
+<div class="search d-flex justify-content-center pt-5 d-none position-relative" id="Searchdiv">
+    <input onkeyup="searchByName(this.value)" type="text" placeholder="Search by Name ..." checked class="form-control w-25 bg-transparent text-white mx-3">
+    <input onkeyup="searchByWord(this.value)" type="text" placeholder="Search by first letter ..." class="form-control w-25 bg-transparent text-white mx-3">
+</div>
+<span class="text-danger d-none" id="warning">First Letter only!</span>
+
+<!-- --------------------------END-Search--------------------- -->
+<!-- --------------------------Contact US--------------------- -->
+<div id="contact" class="min-vh-100 d-none d-flex align-items-center justify-content-end">
+    <div class="container w-75 text-center">
+        <div class="row w-75 g-4">
+            <div class="col-md-6 ggg">
+                <input onkeyup="inputsValidation()"   type="text" class="form-control" required placeholder="Enter your Name...." id="nameInput">
+                <span class="text-danger d-none" id="nameAlert">Special characters and numbers not allowed</span>
+            </div>
+            <div class="col-md-6 ggg">
+                <input onkeyup="inputsValidation()" type="text" class="form-control " required placeholder="Enter your Email...." id="emilInput">
+                <span class=" text-danger d-none" id="emilAlert">Your Emil invalid</span>
+            </div>
+            <div class="col-md-6 ggg">
+                <input onkeyup="inputsValidation()" type="text" class="form-control"required placeholder="Enter your Phone...." id="phoneInput">
+                <span class=" text-danger d-none" id="phoneAlert">Your phone number  invalid</span>
+            </div>
+            <div class="col-md-6 ggg">
+                <input onkeyup="inputsValidation()" type="text" class="form-control"required placeholder="Enter your Age...." id="ageInput">
+                <span class=" text-danger text-danger d-none" id="ageAlert">Your age invalid</span>
+            </div>
+            <div class="col-md-6 ggg">
+                <input onkeyup="inputsValidation()" type="password" class="form-control"required placeholder="Enter your Password..." id="passwordInput">
+                <span class=" text-danger d-none " id="passwordAlert">your password was invalid</span>
+            </div>
+            <div class="col-md-6 ggg">
+                <input onkeyup="inputsValidation()" type="password" class="form-control"required placeholder="rewrite your Password..." id="repasswordInput">
+                <span class=" text-danger  d-none" id="repasswordAlert">repassword was invalid</span>
+            </div>
+            <div class="col-md-6 bbb">
+                <button class="btn  btn-outline-danger" id="submitButton" disabled>Submit</button>
+                <p id="success"  class="text-success d-none">Success</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- --------------------------END-Contact US--------------------- -->
+
+<!-- ------------------------Meals------------------- -->
+<div id="meals">
+    <div class="container">
+        <div class="row d-none" id="mealsRow">
+        </div>
+    </div>
+</div>
+<!-- ------------------------End-Meals------------------- -->
+
+<!-- ------------------------Start-Categories------------------- -->
+<div id="categories" class="h-100">
+    <div class="container">
+        <div class="row mb-4 d-none" id="displayCategories">
+        </div>
+    </div>
+</div>
+<!-- ------------------------End-Categories------------------- -->
+
+
+<!-- ------------------------Start-Area------------------- -->
+<div id="area" class="h-100">
+    <div class="container">
+        <div class="row  py-5 d-none " id="areaDisplaying">
+            
+        </div>
+    </div>
+</div>
+
+<!-- ------------------------End-Area------------------- -->
+<!-- ------------------------Start-Ingredients------------------- -->
+<div id="Ingredients">
+    <div class="container">
+        <div class="row pt-4 d-none" id="Ingredientsdisplaying" >
+            
+        </div>
+    </div>
+</div>
+
+
+
+<!-- ------------------------End-Ingredients------------------- -->
+<!-- --------------------------Start-Display------------------------ -->
+<div id="display">
+    <div class="container">
+        <div class="row d-none" id="showRecibes" >
+            
+        </div>
+    </div>
+</div>
+<!-- --------------------------End-Display------------------------ -->
+
+
+            <!-- -----------------JS+JQUERY-------------------- -->
+<script src="./JS/bootstrap.bundle.min.js"></script>
+<script src="./Jquery/code.jquery.com_jquery-3.7.1.min.js"></script>
+<script src="./JS/main.js"></script>
+</body>
+<!-- ------------------------------END-BODY-------------------     -->
+
+
+
+
+</html>
